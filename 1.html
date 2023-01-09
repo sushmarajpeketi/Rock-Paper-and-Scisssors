@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body style="background-color: #FFE9A0 ;">
+
+    <H1 style="text-align: center; ">ROCK , PAPER AND SCISSORS</H1>
+    <p id="7" style="position: relative; left: 800px; display: inline-block;"></p>
+    <p id="8" style="position: relative; top:20px; left: 685px; display: inline-block; "></p>
+    <div style="margin-top:100px ;">
+        <img id="1" style="margin-left: 300px; border-radius: 50%;" src="rock.jpeg" height="200px" width="200px">
+        <img id="2" style="margin-left: 150px;border-radius: 50%;" src="paper.jpeg" height="200px" width="200px">
+        <img id="3" style="margin-left: 150px;border-radius: 50%;" src="scissor.jpeg" height="200px" width="200px">
+
+    </div>
+    <div style="height: 40px; width: 400px; position: relative; bottom: 100px; display: inline-block;">
+        <p id="4" style="position: relative; left: 280px;color: coral;display: inline-block; "></p>
+        <img id="10" src="" style="position: relative; left: 300px;top: 150px;display: inline-block;border-radius: 50%; ">
+        <!-- <p id="inp" style="position: relative; left: 280px;color:blueviolet;display: inline-block;"></p> -->
+
+    </div>
+    <div style="display: inline-block; position: relative; bottom: 100px; left:200px">
+        <p id="9" style="position: relative; left: 280px; color: coral; display:inline-block;"></p>
+        <img id="5" src="" style="position: relative;left: 300px;top: 150px; display: inline-block;border-radius: 50%; ">
+    </div>
+    <p id="6" style="position: relative; top: 100px; left: 300px; font-weight: bolder; font-size: 40px; ">
+    </p>
+
+
+
+    <script>
+        var userchoice, computerchoice, playerscore = 0;
+        computerscore = 0;
+        document.getElementById("1").addEventListener("click", userchoiceROCK)
+        document.getElementById("2").addEventListener("click", userchoicePAPER)
+        document.getElementById("3").addEventListener("click", userchoiceSCISSOR)
+
+
+        function userchoiceROCK() {
+            document.getElementById("4").innerHTML = "USER CHOICE: "
+                // document.getElementById("inp").innerHTML = "Rock"
+            document.getElementById("10").src = "rock.jpeg"
+            userchoice = 0
+            ComputerChoice()
+        }
+
+        function userchoicePAPER() {
+            document.getElementById("4").innerHTML = "USER CHOICE:"
+                // document.getElementById("inp").innerHTML = "Paper"
+            document.getElementById("10").src = "paper.jpeg"
+            userchoice = 1
+            ComputerChoice()
+
+        }
+
+        function userchoiceSCISSOR() {
+            document.getElementById("4").innerHTML = "USER CHOICE: "
+                // document.getElementById("inp").innerHTML = "Scissor"
+            document.getElementById("10").src = "scissor.jpeg"
+            userchoice = 2
+            ComputerChoice()
+
+        }
+
+        function ComputerChoice() {
+            computerchoice = Math.floor(Math.random() * 3)
+            if (computerchoice == 0) {
+                document.getElementById("9").innerHTML = "COMPUTER CHOICE: "
+                document.getElementById("5").src = "rock.jpeg"
+            }
+            if (computerchoice == 1) {
+                document.getElementById("9").innerHTML = "COMPUTER CHOICE: "
+                document.getElementById("5").src = "paper.jpeg"
+            }
+            if (computerchoice == 2) {
+                document.getElementById("9").innerHTML = "COMPUTER CHOICE: "
+                document.getElementById("5").src = "scissor.jpeg"
+
+            }
+            if (userchoice == 0 && computerchoice == 0) {
+                document.getElementById("6").innerHTML = " Its a DRAW!! "
+
+            }
+            if (userchoice == 0 && computerchoice == 1) {
+                document.getElementById("6").innerHTML = " Computer WINS!! "
+                computerscore = computerscore + 1;
+                document.getElementById("8").innerHTML = "computerscore is: " + computerscore
+
+            }
+            if (userchoice == 0 && computerchoice == 2) {
+                document.getElementById("6").innerHTML = " User WINS!! "
+                playerscore = playerscore + 1;
+                document.getElementById("7").innerHTML = "playerscore is : " + playerscore
+
+            }
+            if (userchoice == 1 && computerchoice == 0) {
+                document.getElementById("6").innerHTML = " User WINS!! "
+                playerscore = playerscore + 1;
+                document.getElementById("7").innerHTML = "playerscore is : " + playerscore
+
+            }
+            if (userchoice == 1 && computerchoice == 1) {
+                document.getElementById("6").innerHTML = " Its a DRAW!! "
+
+            }
+            if (userchoice == 1 && computerchoice == 2) {
+                document.getElementById("6").innerHTML = " Computer WINS!! "
+                computerscore = computerscore + 1;
+
+                document.getElementById("8").innerHTML = "computerscore is: " + computerscore
+            }
+            if (userchoice == 2 && computerchoice == 0) {
+                document.getElementById("6").innerHTML = " Computer WINS!! "
+                computerscore = computerscore + 1;
+
+                document.getElementById("8").innerHTML = "computerscore is: " + computerscore
+            }
+            if (userchoice == 2 && computerchoice == 1) {
+                document.getElementById("6").innerHTML = " User WINS!! "
+                playerscore = playerscore + 1;
+                document.getElementById("7").innerHTML = "playerscore is : " + playerscore
+
+            }
+            if (userchoice == 2 && computerchoice == 2) {
+                document.getElementById("6").innerHTML = " Its a DRAW!! "
+
+            }
+
+        }
+    </script>
+</body>
+
+</html>
